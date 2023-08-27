@@ -88,6 +88,9 @@
       <AssemblyReference>System.ComponentModel</AssemblyReference>
       <AssemblyReference>System.Private.Uri</AssemblyReference>
       <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.CodeDom</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Flowchart sap2010:Annotation.AnnotationText="[Process title]&#xA;[Process description]&#xA;[Additional information (e.g., author, contact information and applications involved and required external setup)]" DisplayName="Orchestration Process" sap:VirtualizedContainerService.HintSize="634,964" sap2010:WorkflowViewState.IdRef="Flowchart_1">
@@ -97,6 +100,7 @@
       <Variable x:TypeArguments="x:String" Name="TaskAction" />
       <Variable x:TypeArguments="upaf:FormTaskData" Name="TaskOutput" />
       <Variable x:TypeArguments="scg:List(scg:List(upaf:FormTaskData))" Name="TaskBatches" />
+      <Variable x:TypeArguments="x:String" Name="DocsPath" />
     </Flowchart.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -109,17 +113,17 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <Flowchart.StartNode>
-      <x:Reference>__ReferenceID5</x:Reference>
+      <x:Reference>__ReferenceID2</x:Reference>
     </Flowchart.StartNode>
-    <FlowStep x:Name="__ReferenceID5">
+    <FlowStep x:Name="__ReferenceID2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <av:Point x:Key="ShapeLocation">200,130</av:Point>
           <av:Size x:Key="ShapeSize">200,138</av:Size>
-          <av:PointCollection x:Key="ConnectorLocation">300,268 300,323.666666666667</av:PointCollection>
+          <av:PointCollection x:Key="ConnectorLocation">300,268 300,376.5</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Sequence sap2010:Annotation.AnnotationText="Read configuration file and initialize, populate a config dictionary." DisplayName="Initialization" sap:VirtualizedContainerService.HintSize="450,408" sap2010:WorkflowViewState.IdRef="Sequence_1">
+      <Sequence sap2010:Annotation.AnnotationText="Read configuration file and initialize, populate a config dictionary." DisplayName="Initialization" sap:VirtualizedContainerService.HintSize="200,138" sap2010:WorkflowViewState.IdRef="Sequence_1">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -144,276 +148,157 @@
             <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
               <VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="Config" />
             </InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="out_str_DocPath">
+              <VisualBasicValue x:TypeArguments="x:String" ExpressionText="DocsPath" />
+            </InArgument>
           </ui:InvokeWorkflowFile.Arguments>
         </ui:InvokeWorkflowFile>
       </Sequence>
       <FlowStep.Next>
-        <FlowStep x:Name="__ReferenceID0">
+        <FlowDecision x:Name="__ReferenceID0" DisplayName="Wait in current process?" sap:VirtualizedContainerService.HintSize="132,87" sap2010:WorkflowViewState.IdRef="FlowDecision_2">
+          <FlowDecision.Condition>
+            <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="Not String.IsNullOrEmpty(DocsPath.Trim)" />
+          </FlowDecision.Condition>
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <av:Point x:Key="ShapeLocation">200,323.666666666667</av:Point>
-              <av:Size x:Key="ShapeSize">200,94</av:Size>
-              <av:PointCollection x:Key="ConnectorLocation">300,417.666666666667 300,473.666666666667</av:PointCollection>
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <av:Point x:Key="ShapeLocation">234,376.5</av:Point>
+              <av:Size x:Key="ShapeSize">132,87</av:Size>
+              <av:PointCollection x:Key="TrueConnector">234,420 100,420 100,538.5</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Invoke business logic and create form tasks." DisplayName="Invoke BusinessProcess Workflow" sap:VirtualizedContainerService.HintSize="200,94" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Framework\BusinessProcess.xaml">
-            <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[Config]</InArgument>
-              <OutArgument x:TypeArguments="scg:List(upaf:FormTaskData)" x:Key="out_TaskList">[TaskList]</OutArgument>
-            </ui:InvokeWorkflowFile.Arguments>
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-          </ui:InvokeWorkflowFile>
-          <FlowStep.Next>
+          <FlowDecision.True>
             <FlowStep x:Name="__ReferenceID1">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <av:Point x:Key="ShapeLocation">200,473.666666666667</av:Point>
-                  <av:Size x:Key="ShapeSize">200,52</av:Size>
-                  <av:PointCollection x:Key="ConnectorLocation">300,526.333333333333 300,556.333333333333 301.666666666667,556.333333333333 301.666666666667,596</av:PointCollection>
+                  <av:Point x:Key="ShapeLocation">0,538.5</av:Point>
+                  <av:Size x:Key="ShapeSize">200,123</av:Size>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke TasksAssignment Workflow" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Framework\TasksAssignment.xaml">
-                <ui:InvokeWorkflowFile.Arguments>
-                  <InArgument x:TypeArguments="scg:List(upaf:FormTaskData)" x:Key="in_TaskList">[TaskList]</InArgument>
-                </ui:InvokeWorkflowFile.Arguments>
+              <Sequence sap2010:Annotation.AnnotationText="Wait for tasks in current process." DisplayName="Wait in current process" sap:VirtualizedContainerService.HintSize="200,123" sap2010:WorkflowViewState.IdRef="Sequence_6">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-              </ui:InvokeWorkflowFile>
-              <FlowStep.Next>
-                <FlowDecision x:Name="__ReferenceID3" Condition="[in_WaitInCurrentProcess and TaskList.Count&lt;=in_TaskBatchSize]" DisplayName="Wait in current process?" sap:VirtualizedContainerService.HintSize="132,87" sap2010:WorkflowViewState.IdRef="FlowDecision_2">
+                <Sequence DisplayName="Wait and after resume step for tasks" sap:VirtualizedContainerService.HintSize="1029.33333333333,1457.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_8">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                      <av:Point x:Key="ShapeLocation">236,596</av:Point>
-                      <av:Size x:Key="ShapeSize">132,87</av:Size>
-                      <av:PointCollection x:Key="FalseConnector">367.333333333333,639.333333333333 431,639.333333333333 431,732</av:PointCollection>
-                      <av:PointCollection x:Key="TrueConnector">236,639.333333333333 100,639.333333333333 100,725.333333333333</av:PointCollection>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <FlowDecision.True>
-                    <FlowStep x:Name="__ReferenceID4">
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <av:Point x:Key="ShapeLocation">0,725.333333333333</av:Point>
-                          <av:Size x:Key="ShapeSize">200,123</av:Size>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                      <Sequence sap2010:Annotation.AnnotationText="Wait for tasks in current process." DisplayName="Wait in current process" sap:VirtualizedContainerService.HintSize="200,123" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                  <ParallelForEach x:TypeArguments="upaf:FormTaskData" DisplayName="Parallel for each task" sap:VirtualizedContainerService.HintSize="987.333333333333,1365.33333333333" sap2010:WorkflowViewState.IdRef="ParallelForEach`1_3" Values="[TaskList]">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ActivityAction x:TypeArguments="upaf:FormTaskData">
+                      <ActivityAction.Argument>
+                        <DelegateInArgument x:TypeArguments="upaf:FormTaskData" Name="task" />
+                      </ActivityAction.Argument>
+                      <TryCatch DisplayName="Try (wait for task and resume)" sap:VirtualizedContainerService.HintSize="936.666666666667,1212.66666666667" sap2010:WorkflowViewState.IdRef="TryCatch_4">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <Sequence DisplayName="Wait and after resume step for tasks" sap:VirtualizedContainerService.HintSize="1029.33333333333,1457.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_8">
-                          <sap:WorkflowViewStateService.ViewState>
-                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                            </scg:Dictionary>
-                          </sap:WorkflowViewStateService.ViewState>
-                          <ParallelForEach x:TypeArguments="upaf:FormTaskData" DisplayName="Parallel for each task" sap:VirtualizedContainerService.HintSize="987.333333333333,1365.33333333333" sap2010:WorkflowViewState.IdRef="ParallelForEach`1_3" Values="[TaskList]">
+                        <TryCatch.Try>
+                          <Sequence DisplayName="Wait and after resume step for task" sap:VirtualizedContainerService.HintSize="898,974.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_7">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <upaf:WaitForFormTaskAndResume StatusMessage="{x:Null}" TimeoutMs="{x:Null}" WaitItemDataObject="{x:Null}" DisplayName="Wait for task and resume" sap:VirtualizedContainerService.HintSize="856,228.666666666667" sap2010:WorkflowViewState.IdRef="WaitForFormTaskAndResume_2" TaskAction="[TaskAction]" TaskInput="[task]" TaskOutput="[TaskOutput]" />
+                            <If Condition="[in_AfterResumeStepInCurrentProcess]" DisplayName="If AfterResume Step In Current Process" sap:VirtualizedContainerService.HintSize="856,614" sap2010:WorkflowViewState.IdRef="If_1">
+                              <If.Then>
+                                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Invoke workflow to perform after resume steps in current processes." DisplayName="Invoke AfterResume workflow" sap:VirtualizedContainerService.HintSize="334,159.333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Framework\AfterResume.xaml">
+                                  <ui:InvokeWorkflowFile.Arguments>
+                                    <InArgument x:TypeArguments="upaf:FormTaskData" x:Key="in_TaskObj">[TaskOutput]</InArgument>
+                                  </ui:InvokeWorkflowFile.Arguments>
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                </ui:InvokeWorkflowFile>
+                              </If.Then>
+                              <If.Else>
+                                <Sequence sap2010:Annotation.AnnotationText="Start job to perform after resume steps." DisplayName="Start after resume job" sap:VirtualizedContainerService.HintSize="476,460" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <TryCatch DisplayName="Try (start job)" sap:VirtualizedContainerService.HintSize="434,337.333333333333" sap2010:WorkflowViewState.IdRef="TryCatch_5">
+                                    <TryCatch.Try>
+                                      <upaj:StartJobAndGetReference JobOutput="{x:Null}" TimeoutMs="{x:Null}" DisplayName="Start job (after resume)" sap:VirtualizedContainerService.HintSize="334,226" sap2010:WorkflowViewState.IdRef="StartJobAndGetReference_3" ProcessName="[in_AfterResumeProcessName]">
+                                        <upaj:StartJobAndGetReference.JobArguments>
+                                          <InArgument x:TypeArguments="upaf:FormTaskData" x:Key="in_TaskOutput">[TaskOutput]</InArgument>
+                                        </upaj:StartJobAndGetReference.JobArguments>
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                      </upaj:StartJobAndGetReference>
+                                    </TryCatch.Try>
+                                    <TryCatch.Catches>
+                                      <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,165.333333333333" sap2010:WorkflowViewState.IdRef="Catch`1_5">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                        <ActivityAction x:TypeArguments="s:Exception">
+                                          <ActivityAction.Argument>
+                                            <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                                          </ActivityAction.Argument>
+                                          <ui:LogMessage DisplayName="Log Message (start job)" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Error" Message="[&quot;After resume job failed to start for task id:&quot; + task.id.Value.ToString]" />
+                                        </ActivityAction>
+                                      </Catch>
+                                    </TryCatch.Catches>
+                                  </TryCatch>
+                                </Sequence>
+                              </If.Else>
+                            </If>
+                          </Sequence>
+                        </TryCatch.Try>
+                        <TryCatch.Catches>
+                          <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="902.666666666667,22" sap2010:WorkflowViewState.IdRef="Catch`1_4">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <ActivityAction x:TypeArguments="upaf:FormTaskData">
+                            <ActivityAction x:TypeArguments="s:Exception">
                               <ActivityAction.Argument>
-                                <DelegateInArgument x:TypeArguments="upaf:FormTaskData" Name="task" />
+                                <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                               </ActivityAction.Argument>
-                              <TryCatch DisplayName="Try (wait for task and resume)" sap:VirtualizedContainerService.HintSize="936.666666666667,1212.66666666667" sap2010:WorkflowViewState.IdRef="TryCatch_4">
-                                <sap:WorkflowViewStateService.ViewState>
-                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                  </scg:Dictionary>
-                                </sap:WorkflowViewStateService.ViewState>
-                                <TryCatch.Try>
-                                  <Sequence DisplayName="Wait and after resume step for task" sap:VirtualizedContainerService.HintSize="898,974.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_7">
-                                    <sap:WorkflowViewStateService.ViewState>
-                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                      </scg:Dictionary>
-                                    </sap:WorkflowViewStateService.ViewState>
-                                    <upaf:WaitForFormTaskAndResume StatusMessage="{x:Null}" TimeoutMs="{x:Null}" WaitItemDataObject="{x:Null}" DisplayName="Wait for task and resume" sap:VirtualizedContainerService.HintSize="856,228.666666666667" sap2010:WorkflowViewState.IdRef="WaitForFormTaskAndResume_2" TaskAction="[TaskAction]" TaskInput="[task]" TaskOutput="[TaskOutput]" />
-                                    <If Condition="[in_AfterResumeStepInCurrentProcess]" DisplayName="If AfterResume Step In Current Process" sap:VirtualizedContainerService.HintSize="856,614" sap2010:WorkflowViewState.IdRef="If_1">
-                                      <If.Then>
-                                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Invoke workflow to perform after resume steps in current processes." DisplayName="Invoke AfterResume workflow" sap:VirtualizedContainerService.HintSize="334,159.333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Framework\AfterResume.xaml">
-                                          <ui:InvokeWorkflowFile.Arguments>
-                                            <InArgument x:TypeArguments="upaf:FormTaskData" x:Key="in_TaskObj">[TaskOutput]</InArgument>
-                                          </ui:InvokeWorkflowFile.Arguments>
-                                          <sap:WorkflowViewStateService.ViewState>
-                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                                            </scg:Dictionary>
-                                          </sap:WorkflowViewStateService.ViewState>
-                                        </ui:InvokeWorkflowFile>
-                                      </If.Then>
-                                      <If.Else>
-                                        <Sequence sap2010:Annotation.AnnotationText="Start job to perform after resume steps." DisplayName="Start after resume job" sap:VirtualizedContainerService.HintSize="476,460" sap2010:WorkflowViewState.IdRef="Sequence_9">
-                                          <sap:WorkflowViewStateService.ViewState>
-                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                                            </scg:Dictionary>
-                                          </sap:WorkflowViewStateService.ViewState>
-                                          <TryCatch DisplayName="Try (start job)" sap:VirtualizedContainerService.HintSize="434,337.333333333333" sap2010:WorkflowViewState.IdRef="TryCatch_5">
-                                            <TryCatch.Try>
-                                              <upaj:StartJobAndGetReference JobOutput="{x:Null}" TimeoutMs="{x:Null}" DisplayName="Start job (after resume)" sap:VirtualizedContainerService.HintSize="334,226" sap2010:WorkflowViewState.IdRef="StartJobAndGetReference_3" ProcessName="[in_AfterResumeProcessName]">
-                                                <upaj:StartJobAndGetReference.JobArguments>
-                                                  <InArgument x:TypeArguments="upaf:FormTaskData" x:Key="in_TaskOutput">[TaskOutput]</InArgument>
-                                                </upaj:StartJobAndGetReference.JobArguments>
-                                                <sap:WorkflowViewStateService.ViewState>
-                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                                  </scg:Dictionary>
-                                                </sap:WorkflowViewStateService.ViewState>
-                                              </upaj:StartJobAndGetReference>
-                                            </TryCatch.Try>
-                                            <TryCatch.Catches>
-                                              <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,165.333333333333" sap2010:WorkflowViewState.IdRef="Catch`1_5">
-                                                <sap:WorkflowViewStateService.ViewState>
-                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                                  </scg:Dictionary>
-                                                </sap:WorkflowViewStateService.ViewState>
-                                                <ActivityAction x:TypeArguments="s:Exception">
-                                                  <ActivityAction.Argument>
-                                                    <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
-                                                  </ActivityAction.Argument>
-                                                  <ui:LogMessage DisplayName="Log Message (start job)" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Error" Message="[&quot;After resume job failed to start for task id:&quot; + task.id.Value.ToString]" />
-                                                </ActivityAction>
-                                              </Catch>
-                                            </TryCatch.Catches>
-                                          </TryCatch>
-                                        </Sequence>
-                                      </If.Else>
-                                    </If>
-                                  </Sequence>
-                                </TryCatch.Try>
-                                <TryCatch.Catches>
-                                  <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="902.666666666667,22" sap2010:WorkflowViewState.IdRef="Catch`1_4">
-                                    <sap:WorkflowViewStateService.ViewState>
-                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                      </scg:Dictionary>
-                                    </sap:WorkflowViewStateService.ViewState>
-                                    <ActivityAction x:TypeArguments="s:Exception">
-                                      <ActivityAction.Argument>
-                                        <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
-                                      </ActivityAction.Argument>
-                                      <ui:LogMessage DisplayName="Log message (failed to wait for task)" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Error" Message="[&quot;Wait for task id &quot; + task.Id.Value.ToString() + &quot; failed: &quot; + exception.Message]" />
-                                    </ActivityAction>
-                                  </Catch>
-                                </TryCatch.Catches>
-                              </TryCatch>
+                              <ui:LogMessage DisplayName="Log message (failed to wait for task)" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Error" Message="[&quot;Wait for task id &quot; + task.Id.Value.ToString() + &quot; failed: &quot; + exception.Message]" />
                             </ActivityAction>
-                          </ParallelForEach>
-                        </Sequence>
-                      </Sequence>
-                    </FlowStep>
-                  </FlowDecision.True>
-                  <FlowDecision.False>
-                    <FlowStep x:Name="__ReferenceID2">
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <av:Point x:Key="ShapeLocation">331,732</av:Point>
-                          <av:Size x:Key="ShapeSize">200,123</av:Size>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                      <Sequence sap2010:Annotation.AnnotationText="Start job to wait for task batches." DisplayName="Wait in other process" sap:VirtualizedContainerService.HintSize="200,123" sap2010:WorkflowViewState.IdRef="Sequence_5">
-                        <sap:WorkflowViewStateService.ViewState>
-                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                          </scg:Dictionary>
-                        </sap:WorkflowViewStateService.ViewState>
-                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke GetTaskBatches workflow" sap:VirtualizedContainerService.HintSize="526.666666666667,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Framework\\GetTaskBatches.xaml">
-                          <ui:InvokeWorkflowFile.Arguments>
-                            <InArgument x:TypeArguments="scg:List(upaf:FormTaskData)" x:Key="in_TaskList">[TaskList]</InArgument>
-                            <OutArgument x:TypeArguments="scg:List(scg:List(upaf:FormTaskData))" x:Key="out_TaskBatches">[TaskBatches]</OutArgument>
-                            <InArgument x:TypeArguments="x:Int32" x:Key="in_TaskBatchSize">[in_TaskBatchSize]</InArgument>
-                          </ui:InvokeWorkflowFile.Arguments>
-                        </ui:InvokeWorkflowFile>
-                        <ParallelForEach x:TypeArguments="scg:List(upaf:FormTaskData)" DisplayName="Parallel for each task batch" sap:VirtualizedContainerService.HintSize="526.666666666667,582" sap2010:WorkflowViewState.IdRef="ParallelForEach`1_2" Values="[TaskBatches]">
-                          <ActivityAction x:TypeArguments="scg:List(upaf:FormTaskData)">
-                            <ActivityAction.Argument>
-                              <DelegateInArgument x:TypeArguments="scg:List(upaf:FormTaskData)" Name="taskBatch" />
-                            </ActivityAction.Argument>
-                            <Sequence DisplayName="Start Job" sap:VirtualizedContainerService.HintSize="476,429.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_4">
-                              <sap:WorkflowViewStateService.ViewState>
-                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                </scg:Dictionary>
-                              </sap:WorkflowViewStateService.ViewState>
-                              <TryCatch DisplayName="Try (start job)" sap:VirtualizedContainerService.HintSize="434,337.333333333333" sap2010:WorkflowViewState.IdRef="TryCatch_3">
-                                <sap:WorkflowViewStateService.ViewState>
-                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                  </scg:Dictionary>
-                                </sap:WorkflowViewStateService.ViewState>
-                                <TryCatch.Try>
-                                  <upaj:StartJobAndGetReference JobOutput="{x:Null}" TimeoutMs="{x:Null}" DisplayName="Start job (wait for task batch)" sap:VirtualizedContainerService.HintSize="334,226" sap2010:WorkflowViewState.IdRef="StartJobAndGetReference_2" ProcessName="[in_TaskWaitProcessName]">
-                                    <upaj:StartJobAndGetReference.JobArguments>
-                                      <InArgument x:TypeArguments="scg:List(x:Int64)" x:Key="in_TaskList">[taskBatch.Select(Function(x) x.id.Value).ToList()]</InArgument>
-                                    </upaj:StartJobAndGetReference.JobArguments>
-                                    <sap:WorkflowViewStateService.ViewState>
-                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                      </scg:Dictionary>
-                                    </sap:WorkflowViewStateService.ViewState>
-                                  </upaj:StartJobAndGetReference>
-                                </TryCatch.Try>
-                                <TryCatch.Catches>
-                                  <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,165.333333333333" sap2010:WorkflowViewState.IdRef="Catch`1_3">
-                                    <sap:WorkflowViewStateService.ViewState>
-                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                      </scg:Dictionary>
-                                    </sap:WorkflowViewStateService.ViewState>
-                                    <ActivityAction x:TypeArguments="s:Exception">
-                                      <ActivityAction.Argument>
-                                        <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
-                                      </ActivityAction.Argument>
-                                      <ui:LogMessage DisplayName="Log Message (start job)" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Error" Message="[&quot;Wait job failed to start&quot;]" />
-                                    </ActivityAction>
-                                  </Catch>
-                                </TryCatch.Catches>
-                              </TryCatch>
-                            </Sequence>
-                          </ActivityAction>
-                        </ParallelForEach>
-                      </Sequence>
-                    </FlowStep>
-                  </FlowDecision.False>
-                </FlowDecision>
-              </FlowStep.Next>
+                          </Catch>
+                        </TryCatch.Catches>
+                      </TryCatch>
+                    </ActivityAction>
+                  </ParallelForEach>
+                </Sequence>
+              </Sequence>
             </FlowStep>
-          </FlowStep.Next>
-        </FlowStep>
+          </FlowDecision.True>
+        </FlowDecision>
       </FlowStep.Next>
     </FlowStep>
     <x:Reference>__ReferenceID0</x:Reference>
     <x:Reference>__ReferenceID1</x:Reference>
-    <x:Reference>__ReferenceID2</x:Reference>
-    <x:Reference>__ReferenceID3</x:Reference>
-    <x:Reference>__ReferenceID4</x:Reference>
   </Flowchart>
 </Activity>
