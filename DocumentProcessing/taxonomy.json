@@ -2,173 +2,6 @@
   "DataContractVersion": "1.1",
   "DocumentTypes": [
     {
-      "DocumentTypeId": "Finance.NoCategory.Invoices",
-      "Group": "Finance",
-      "Category": "Incoming",
-      "Name": "Invoices",
-      "OptionalUniqueIdentifier": "",
-      "TypeField": {
-        "FieldId": "Finance.NoCategory.Invoices.DocumentType",
-        "FieldName": "Document Type"
-      },
-      "Fields": [
-        {
-          "FieldId": "Finance.NoCategory.Invoices.InvoiceNumber",
-          "FieldName": "Invoice Number",
-          "IsMultiValue": false,
-          "Type": "Text",
-          "DeriveFieldsFormat": "",
-          "Components": [],
-          "SetValues": [],
-          "Metadata": [
-            {
-              "Key": "Color",
-              "Value": "#038a18"
-            },
-            {
-              "Key": "Hotkey",
-              "Value": "v"
-            }
-          ],
-          "RuleSet": null,
-          "DefaultValue": ""
-        },
-        {
-          "FieldId": "Finance.NoCategory.Invoices.InvoiceDate",
-          "FieldName": "Invoice Date",
-          "IsMultiValue": false,
-          "Type": "Date",
-          "DeriveFieldsFormat": "",
-          "Components": [],
-          "SetValues": [],
-          "Metadata": [
-            {
-              "Key": "Color",
-              "Value": "#fa6616"
-            },
-            {
-              "Key": "Hotkey",
-              "Value": "c"
-            }
-          ],
-          "RuleSet": null,
-          "DefaultValue": ""
-        },
-        {
-          "FieldId": "Finance.NoCategory.Invoices.VendorAddress",
-          "FieldName": "Vendor Address",
-          "IsMultiValue": false,
-          "Type": "Address",
-          "DeriveFieldsFormat": "",
-          "Components": [],
-          "SetValues": [],
-          "Metadata": [
-            {
-              "Key": "Color",
-              "Value": "#8a97a0"
-            },
-            {
-              "Key": "Hotkey",
-              "Value": "e"
-            }
-          ],
-          "RuleSet": null,
-          "DefaultValue": ""
-        },
-        {
-          "FieldId": "Finance.NoCategory.Invoices.Totalamount",
-          "FieldName": "Total amount",
-          "IsMultiValue": false,
-          "Type": "Number",
-          "DeriveFieldsFormat": "",
-          "Components": [],
-          "SetValues": [],
-          "Metadata": [
-            {
-              "Key": "Color",
-              "Value": "#6eb84a"
-            },
-            {
-              "Key": "Hotkey",
-              "Value": "a"
-            }
-          ],
-          "RuleSet": null,
-          "DefaultValue": ""
-        },
-        {
-          "FieldId": "Finance.NoCategory.Invoices.Lineitems",
-          "FieldName": "Line items",
-          "IsMultiValue": false,
-          "Type": "Table",
-          "DeriveFieldsFormat": "",
-          "Components": [
-            {
-              "FieldId": "Finance.NoCategory.Invoices.Lineitems.Description",
-              "FieldName": "Description",
-              "IsMultiValue": false,
-              "Type": "Text",
-              "DeriveFieldsFormat": "",
-              "Components": [],
-              "SetValues": [],
-              "Metadata": [],
-              "RuleSet": null,
-              "DefaultValue": ""
-            },
-            {
-              "FieldId": "Finance.NoCategory.Invoices.Lineitems.Quantity",
-              "FieldName": "Quantity",
-              "IsMultiValue": false,
-              "Type": "Number",
-              "DeriveFieldsFormat": "",
-              "Components": [],
-              "SetValues": [],
-              "Metadata": [],
-              "RuleSet": null,
-              "DefaultValue": ""
-            },
-            {
-              "FieldId": "Finance.NoCategory.Invoices.Lineitems.UnitPrice",
-              "FieldName": "Unit Price",
-              "IsMultiValue": false,
-              "Type": "Number",
-              "DeriveFieldsFormat": "",
-              "Components": [],
-              "SetValues": [],
-              "Metadata": [],
-              "RuleSet": null,
-              "DefaultValue": ""
-            },
-            {
-              "FieldId": "Finance.NoCategory.Invoices.Lineitems.LinePrice",
-              "FieldName": "Line Price",
-              "IsMultiValue": false,
-              "Type": "Number",
-              "DeriveFieldsFormat": "",
-              "Components": [],
-              "SetValues": [],
-              "Metadata": [],
-              "RuleSet": null,
-              "DefaultValue": ""
-            }
-          ],
-          "SetValues": [],
-          "Metadata": [
-            {
-              "Key": "Color",
-              "Value": "#f815b1"
-            },
-            {
-              "Key": "Hotkey",
-              "Value": "l"
-            }
-          ],
-          "RuleSet": null,
-          "DefaultValue": ""
-        }
-      ]
-    },
-    {
       "DocumentTypeId": "Finance.Incoming.Form10-k",
       "Group": "Finance",
       "Category": "Incoming",
@@ -1185,6 +1018,173 @@
             {
               "Key": "Hotkey",
               "Value": "y"
+            }
+          ],
+          "RuleSet": null,
+          "DefaultValue": ""
+        }
+      ]
+    },
+    {
+      "DocumentTypeId": "Finance.Incoming.Invoices",
+      "Group": "Finance",
+      "Category": "Incoming",
+      "Name": "Invoices",
+      "OptionalUniqueIdentifier": "",
+      "TypeField": {
+        "FieldId": "Finance.Incoming.Invoices.DocumentType",
+        "FieldName": "Document Type"
+      },
+      "Fields": [
+        {
+          "FieldId": "Finance.Incoming.Invoices.InvoiceNumber",
+          "FieldName": "Invoice Number",
+          "IsMultiValue": false,
+          "Type": "Text",
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": [],
+          "Metadata": [
+            {
+              "Key": "Color",
+              "Value": "#038a18"
+            },
+            {
+              "Key": "Hotkey",
+              "Value": "v"
+            }
+          ],
+          "RuleSet": null,
+          "DefaultValue": ""
+        },
+        {
+          "FieldId": "Finance.Incoming.Invoices.InvoiceDate",
+          "FieldName": "Invoice Date",
+          "IsMultiValue": false,
+          "Type": "Date",
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": [],
+          "Metadata": [
+            {
+              "Key": "Color",
+              "Value": "#fa6616"
+            },
+            {
+              "Key": "Hotkey",
+              "Value": "c"
+            }
+          ],
+          "RuleSet": null,
+          "DefaultValue": ""
+        },
+        {
+          "FieldId": "Finance.Incoming.Invoices.VendorAddress",
+          "FieldName": "Vendor Address",
+          "IsMultiValue": false,
+          "Type": "Address",
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": [],
+          "Metadata": [
+            {
+              "Key": "Color",
+              "Value": "#8a97a0"
+            },
+            {
+              "Key": "Hotkey",
+              "Value": "e"
+            }
+          ],
+          "RuleSet": null,
+          "DefaultValue": ""
+        },
+        {
+          "FieldId": "Finance.Incoming.Invoices.TotalAmount",
+          "FieldName": "Total Amount",
+          "IsMultiValue": false,
+          "Type": "Number",
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": [],
+          "Metadata": [
+            {
+              "Key": "Color",
+              "Value": "#6eb84a"
+            },
+            {
+              "Key": "Hotkey",
+              "Value": "a"
+            }
+          ],
+          "RuleSet": null,
+          "DefaultValue": ""
+        },
+        {
+          "FieldId": "Finance.Incoming.Invoices.LineItems",
+          "FieldName": "Line Items",
+          "IsMultiValue": false,
+          "Type": "Table",
+          "DeriveFieldsFormat": "",
+          "Components": [
+            {
+              "FieldId": "Finance.Incoming.Invoices.LineItems.Description",
+              "FieldName": "Description",
+              "IsMultiValue": false,
+              "Type": "Text",
+              "DeriveFieldsFormat": "",
+              "Components": [],
+              "SetValues": [],
+              "Metadata": [],
+              "RuleSet": null,
+              "DefaultValue": ""
+            },
+            {
+              "FieldId": "Finance.Incoming.Invoices.LineItems.Quantity",
+              "FieldName": "Quantity",
+              "IsMultiValue": false,
+              "Type": "Number",
+              "DeriveFieldsFormat": "",
+              "Components": [],
+              "SetValues": [],
+              "Metadata": [],
+              "RuleSet": null,
+              "DefaultValue": ""
+            },
+            {
+              "FieldId": "Finance.Incoming.Invoices.LineItems.UnitPrice",
+              "FieldName": "Unit Price",
+              "IsMultiValue": false,
+              "Type": "Number",
+              "DeriveFieldsFormat": "",
+              "Components": [],
+              "SetValues": [],
+              "Metadata": [],
+              "RuleSet": null,
+              "DefaultValue": ""
+            },
+            {
+              "FieldId": "Finance.Incoming.Invoices.LineItems.LinePrice",
+              "FieldName": "Line Price",
+              "IsMultiValue": false,
+              "Type": "Number",
+              "DeriveFieldsFormat": "",
+              "Components": [],
+              "SetValues": [],
+              "Metadata": [],
+              "RuleSet": null,
+              "DefaultValue": ""
+            }
+          ],
+          "SetValues": [],
+          "Metadata": [
+            {
+              "Key": "Color",
+              "Value": "#d260c4"
+            },
+            {
+              "Key": "Hotkey",
+              "Value": "l"
             }
           ],
           "RuleSet": null,

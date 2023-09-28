@@ -1,12 +1,13 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="ReadingAssets" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
-    <x:Property Name="out_InputFilepath" Type="OutArgument(x:String)" />
+    <x:Property Name="out_DocumentFolderPath" Type="OutArgument(x:String)" />
+    <x:Property Name="out_DocStoragePath" Type="OutArgument(x:String)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>680,1345</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1240,1215</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ReadingAssets_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -79,7 +80,7 @@
       <AssemblyReference>UiPath.Workflow</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="ReadingAssets" sap:VirtualizedContainerService.HintSize="500,1280" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="ReadingAssets" sap:VirtualizedContainerService.HintSize="500,1150" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="str_InvoiceTrainingDataPath" />
       <Variable x:TypeArguments="x:String" Name="str_OutputPath" />
@@ -91,30 +92,29 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="[in_Config(&quot;DocStoragePath&quot;).ToString]" CacheStrategy="None" DisplayName="Get Asset" sap:VirtualizedContainerService.HintSize="438,143" sap2010:WorkflowViewState.IdRef="GetRobotAsset_5">
+    <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="DocStoragePath" CacheStrategy="None" DisplayName="Get Asset" FolderPath="Document Understanding" sap:VirtualizedContainerService.HintSize="438,143" sap2010:WorkflowViewState.IdRef="GetRobotAsset_6">
       <ui:GetRobotAsset.Value>
-        <OutArgument x:TypeArguments="x:String">[out_InputFilepath]</OutArgument>
+        <OutArgument x:TypeArguments="x:String">[out_DocStoragePath]</OutArgument>
       </ui:GetRobotAsset.Value>
     </ui:GetRobotAsset>
-    <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="[in_Config(&quot;InvoiceTrainingData&quot;).ToString]" CacheStrategy="None" DisplayName="Get Asset" sap:VirtualizedContainerService.HintSize="438,143" sap2010:WorkflowViewState.IdRef="GetRobotAsset_2">
+    <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="InvoiceTrainingData" CacheStrategy="None" DisplayName="Get Asset" FolderPath="Document Understanding" sap:VirtualizedContainerService.HintSize="438,143" sap2010:WorkflowViewState.IdRef="GetRobotAsset_7">
       <ui:GetRobotAsset.Value>
         <OutArgument x:TypeArguments="x:String">[str_InvoiceTrainingDataPath]</OutArgument>
       </ui:GetRobotAsset.Value>
     </ui:GetRobotAsset>
-    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="438,90" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[in_Config(&quot;InvoiceTrainingData&quot;).ToString]" />
-    <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="[in_Config(&quot;OutputDataFolderPath&quot;).ToString]" CacheStrategy="None" DisplayName="Get Asset" sap:VirtualizedContainerService.HintSize="438,143" sap2010:WorkflowViewState.IdRef="GetRobotAsset_3">
+    <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="OutputDataFolderPath" CacheStrategy="None" DisplayName="Get Asset" FolderPath="Document Understanding" sap:VirtualizedContainerService.HintSize="438,143" sap2010:WorkflowViewState.IdRef="GetRobotAsset_8">
       <ui:GetRobotAsset.Value>
         <OutArgument x:TypeArguments="x:String">[str_OutputPath]</OutArgument>
       </ui:GetRobotAsset.Value>
     </ui:GetRobotAsset>
-    <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="[in_Config(&quot;PurchaseOrderTrainingData&quot;).ToString]" CacheStrategy="None" DisplayName="Get Asset" sap:VirtualizedContainerService.HintSize="438,143" sap2010:WorkflowViewState.IdRef="GetRobotAsset_4">
+    <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="PurchaseOrderTrainingData" CacheStrategy="None" DisplayName="Get Asset" FolderPath="Document Understanding" sap:VirtualizedContainerService.HintSize="438,143" sap2010:WorkflowViewState.IdRef="GetRobotAsset_9">
       <ui:GetRobotAsset.Value>
         <OutArgument x:TypeArguments="x:String">[str_POTrainingDataPath]</OutArgument>
       </ui:GetRobotAsset.Value>
     </ui:GetRobotAsset>
     <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438,307" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
-        <ui:SelectFolder DisplayName="Browse For Folder" sap:VirtualizedContainerService.HintSize="334,79" sap2010:WorkflowViewState.IdRef="SelectFolder_1" SelectedFolder="[out_InputFilepath]" />
+        <ui:SelectFolder DisplayName="Browse For Folder" sap:VirtualizedContainerService.HintSize="334,79" sap2010:WorkflowViewState.IdRef="SelectFolder_1" SelectedFolder="[out_DocumentFolderPath]" />
       </TryCatch.Try>
       <TryCatch.Catches>
         <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
