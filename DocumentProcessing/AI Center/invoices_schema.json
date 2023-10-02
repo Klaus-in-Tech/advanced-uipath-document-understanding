@@ -1,0 +1,541 @@
+{
+ "extraction": [
+  {
+   "name": "name",
+   "display_name": "Vendor Name",
+   "color": "#ff0088",
+   "hotkey": "n",
+   "type": "string",
+   "multi_line": true,
+   "split_items": false,
+   "post_processing": "first_span",
+   "scoring": "levenshtein",
+   "hidden": false,
+   "multi_valued": false
+  },
+  {
+   "name": "vendor-addr",
+   "display_name": "Vendor Address",
+   "color": "#65d642",
+   "hotkey": "v",
+   "type": "string",
+   "multi_line": true,
+   "split_items": false,
+   "post_processing": "first_span",
+   "scoring": "levenshtein",
+   "hidden": false,
+   "multi_valued": false
+  },
+  {
+   "name": "billing-name",
+   "display_name": "Billing Name",
+   "color": "#7f5140",
+   "hotkey": "b",
+   "type": "string",
+   "multi_line": true,
+   "split_items": false,
+   "post_processing": "first_span",
+   "scoring": "levenshtein",
+   "hidden": false,
+   "multi_valued": false
+  },
+  {
+   "name": "billing-addr",
+   "display_name": "Billing Address",
+   "color": "#ff8c40",
+   "hotkey": "i",
+   "type": "string",
+   "multi_line": true,
+   "split_items": false,
+   "post_processing": "first_span",
+   "scoring": "levenshtein",
+   "hidden": false,
+   "multi_valued": false
+  },
+  {
+   "name": "shipping-addr",
+   "display_name": "Shipping Address",
+   "color": "#00bfb3",
+   "hotkey": "s",
+   "type": "string",
+   "multi_line": true,
+   "split_items": false,
+   "post_processing": "first_span",
+   "scoring": "levenshtein",
+   "hidden": false,
+   "multi_valued": false
+  },
+  {
+   "name": "invoice-no",
+   "display_name": "Invoice Number",
+   "color": "#f2ff40",
+   "hotkey": "o",
+   "type": "id-no",
+   "multi_line": false,
+   "split_items": false,
+   "post_processing": "first_span",
+   "scoring": "exact_match",
+   "hidden": false,
+   "multi_valued": false
+  },
+  {
+   "name": "po-no",
+   "display_name": "Customer Purchase Order Number",
+   "color": "#0099bf",
+   "hotkey": "p",
+   "type": "id-no",
+   "multi_line": false,
+   "split_items": false,
+   "post_processing": "first_span",
+   "scoring": "exact_match",
+   "hidden": false,
+   "multi_valued": false
+  },
+  {
+   "name": "vendor-vat-no",
+   "display_name": "Vendor VAT Number",
+   "color": "#40ff8c",
+   "hotkey": "e",
+   "type": "id-no",
+   "multi_line": false,
+   "split_items": false,
+   "post_processing": "first_span",
+   "scoring": "exact_match",
+   "hidden": false,
+   "multi_valued": false
+  },
+  {
+   "name": "date",
+   "display_name": "Invoice Date",
+   "color": "#110040",
+   "hotkey": "d",
+   "type": "date",
+   "multi_line": false,
+   "split_items": false,
+   "post_processing": "first_span",
+   "scoring": "exact_match",
+   "hidden": false,
+   "multi_valued": false
+  },
+  {
+   "name": "tax",
+   "display_name": "Tax Amount",
+   "color": "#eabfff",
+   "hotkey": "t",
+   "type": "number",
+   "multi_line": false,
+   "split_items": false,
+   "post_processing": "first_span",
+   "scoring": "exact_match",
+   "hidden": false,
+   "multi_valued": false
+  },
+  {
+   "name": "total",
+   "display_name": "Total Amount",
+   "color": "#ee00ff",
+   "hotkey": "a",
+   "type": "number",
+   "multi_line": false,
+   "split_items": false,
+   "post_processing": "largest_value",
+   "scoring": "exact_match",
+   "hidden": false,
+   "multi_valued": false
+  },
+  {
+   "name": "payment-terms",
+   "display_name": "Payment Terms",
+   "color": "#005580",
+   "hotkey": "y",
+   "type": "string",
+   "multi_line": true,
+   "split_items": false,
+   "post_processing": "first_span",
+   "scoring": "levenshtein",
+   "hidden": false,
+   "multi_valued": false
+  },
+  {
+   "name": "net-amount",
+   "display_name": "Net Amount",
+   "color": "#7f2039",
+   "hotkey": "-",
+   "type": "number",
+   "multi_line": false,
+   "split_items": false,
+   "post_processing": "first_span",
+   "scoring": "exact_match",
+   "hidden": false,
+   "multi_valued": false
+  },
+  {
+   "name": "due-date",
+   "display_name": "Due Date",
+   "color": "#9e78db",
+   "hotkey": "u",
+   "type": "date",
+   "multi_line": false,
+   "split_items": false,
+   "post_processing": "first_span",
+   "scoring": "exact_match",
+   "hidden": false,
+   "multi_valued": false
+  },
+  {
+   "name": "discount",
+   "display_name": "Discount",
+   "color": "#383040",
+   "hotkey": "c",
+   "type": "number",
+   "multi_line": false,
+   "split_items": false,
+   "post_processing": "first_span",
+   "scoring": "exact_match",
+   "hidden": false,
+   "multi_valued": false
+  },
+  {
+   "name": "shipping-charges",
+   "display_name": "Shipping Charges",
+   "color": "#20403e",
+   "hotkey": "h",
+   "type": "number",
+   "multi_line": false,
+   "split_items": false,
+   "post_processing": "first_span",
+   "scoring": "exact_match",
+   "hidden": false,
+   "multi_valued": false
+  },
+  {
+   "name": "payment-addr",
+   "display_name": "Payment Address",
+   "color": "#bfeaff",
+   "hotkey": "m",
+   "type": "string",
+   "multi_line": true,
+   "split_items": false,
+   "post_processing": "first_span",
+   "scoring": "levenshtein",
+   "hidden": false,
+   "multi_valued": false
+  },
+  {
+   "name": "description",
+   "display_name": "Description",
+   "color": "#bf60b9",
+   "hotkey": "1",
+   "type": "string",
+   "section": "items",
+   "multi_line": true,
+   "split_items": false,
+   "post_processing": "first_span",
+   "scoring": "levenshtein",
+   "hidden": false,
+   "multi_valued": false
+  },
+  {
+   "name": "quantity",
+   "display_name": "Quantity",
+   "color": "#401036",
+   "hotkey": "2",
+   "type": "number",
+   "section": "items",
+   "multi_line": false,
+   "split_items": true,
+   "post_processing": "first_span",
+   "scoring": "exact_match",
+   "hidden": false,
+   "multi_valued": false
+  },
+  {
+   "name": "unit-price",
+   "display_name": "Unit Price",
+   "color": "#ffc480",
+   "hotkey": "3",
+   "type": "number",
+   "section": "items",
+   "multi_line": false,
+   "split_items": true,
+   "post_processing": "first_span",
+   "scoring": "exact_match",
+   "hidden": false,
+   "multi_valued": false
+  },
+  {
+   "name": "line-amount",
+   "display_name": "Line Amount",
+   "color": "#7f7920",
+   "hotkey": "4",
+   "type": "number",
+   "section": "items",
+   "multi_line": false,
+   "split_items": true,
+   "post_processing": "first_span",
+   "scoring": "exact_match",
+   "hidden": false,
+   "multi_valued": false
+  },
+  {
+   "name": "item-po-no",
+   "display_name": "Customer Purchase Order Number - Item Level",
+   "color": "#66bf00",
+   "hotkey": "5",
+   "type": "id-no",
+   "section": "items",
+   "multi_line": false,
+   "split_items": false,
+   "post_processing": "first_span",
+   "scoring": "exact_match",
+   "hidden": false,
+   "multi_valued": false
+  },
+  {
+   "name": "line-no",
+   "display_name": "Line Number",
+   "color": "#ff0000",
+   "hotkey": "6",
+   "type": "id-no",
+   "section": "items",
+   "multi_line": false,
+   "split_items": false,
+   "post_processing": "first_span",
+   "scoring": "exact_match",
+   "hidden": false,
+   "multi_valued": false
+  },
+  {
+   "name": "part-no",
+   "display_name": "Part Number",
+   "color": "#0066ff",
+   "hotkey": "7",
+   "type": "id-no",
+   "section": "items",
+   "multi_line": false,
+   "split_items": false,
+   "post_processing": "first_span",
+   "scoring": "exact_match",
+   "hidden": false,
+   "multi_valued": false
+  },
+  {
+   "name": "billing-vat-no",
+   "display_name": "Billing VAT Number",
+   "color": "#b1f23e",
+   "hotkey": "g",
+   "type": "id-no",
+   "multi_line": false,
+   "split_items": false,
+   "post_processing": "first_span",
+   "scoring": "exact_match",
+   "hidden": false,
+   "multi_valued": false
+  },
+  {
+   "name": "shipping-date",
+   "display_name": "Shipping Date",
+   "color": "#2d8020",
+   "hotkey": "r",
+   "type": "date",
+   "multi_line": false,
+   "split_items": false,
+   "post_processing": "first_span",
+   "scoring": "exact_match",
+   "hidden": false,
+   "multi_valued": false
+  },
+  {
+   "name": "vendor-email",
+   "display_name": "Vendor Email Address",
+   "color": "#ff0022",
+   "hotkey": "w",
+   "type": "string",
+   "multi_line": false,
+   "split_items": false,
+   "post_processing": "first_span",
+   "scoring": "levenshtein",
+   "hidden": false,
+   "multi_valued": false
+  },
+  {
+   "name": "bank-name",
+   "display_name": "Bank Name",
+   "color": "#403030",
+   "hotkey": "z",
+   "type": "string",
+   "multi_line": false,
+   "split_items": false,
+   "post_processing": "first_span",
+   "scoring": "levenshtein",
+   "hidden": false,
+   "multi_valued": false
+  },
+  {
+   "name": "bank-account-no",
+   "display_name": "Bank Account Number",
+   "color": "#4400ff",
+   "hotkey": "x",
+   "type": "id-no",
+   "multi_line": false,
+   "split_items": false,
+   "post_processing": "first_span",
+   "scoring": "exact_match",
+   "hidden": false,
+   "multi_valued": false
+  },
+  {
+   "name": "iban",
+   "display_name": "IBAN",
+   "color": "#c79c7a",
+   "hotkey": "]",
+   "type": "string",
+   "multi_line": false,
+   "split_items": false,
+   "post_processing": "first_span",
+   "scoring": "levenshtein",
+   "hidden": false,
+   "multi_valued": false
+  },
+  {
+   "name": "swift-code",
+   "display_name": "SWIFT Code",
+   "color": "#50c8e9",
+   "hotkey": "f",
+   "type": "id-no",
+   "multi_line": false,
+   "split_items": false,
+   "post_processing": "first_span",
+   "scoring": "exact_match",
+   "hidden": false,
+   "multi_valued": false
+  },
+  {
+   "name": "bank-addr",
+   "display_name": "Bank Address",
+   "color": "#b6d544",
+   "hotkey": "j",
+   "type": "string",
+   "multi_line": true,
+   "split_items": false,
+   "post_processing": "first_span",
+   "scoring": "levenshtein",
+   "hidden": false,
+   "multi_valued": false
+  },
+  {
+   "name": "bank-routing-no",
+   "display_name": "Bank Routing Number",
+   "color": "#c8003b",
+   "hotkey": "l",
+   "type": "id-no",
+   "multi_line": false,
+   "split_items": false,
+   "post_processing": "first_span",
+   "scoring": "exact_match",
+   "hidden": false,
+   "multi_valued": false
+  },
+  {
+   "name": "tax-rate",
+   "display_name": "Tax Rate",
+   "color": "#b43252",
+   "hotkey": "k",
+   "type": "number",
+   "multi_line": false,
+   "split_items": false,
+   "post_processing": "first_span",
+   "scoring": "exact_match",
+   "hidden": false,
+   "multi_valued": false
+  }
+ ],
+ "classification": {
+  "currency": [
+   {
+    "name": "USD",
+    "description": "United States"
+   },
+   {
+    "name": "EUR",
+    "description": "Europe"
+   },
+   {
+    "name": "RON",
+    "description": "Romania"
+   },
+   {
+    "name": "GBP",
+    "description": "UK"
+   },
+   {
+    "name": "INR",
+    "description": "India"
+   },
+   {
+    "name": "CAD",
+    "description": "Canada"
+   },
+   {
+    "name": "AUD",
+    "description": "Australia"
+   },
+   {
+    "name": "MYR",
+    "description": "Malaysia"
+   },
+   {
+    "name": "BRL",
+    "description": "Brazil"
+   },
+   {
+    "name": "JPY",
+    "description": "Japan"
+   },
+   {
+    "name": "SGD",
+    "description": "Singapore"
+   },
+   {
+    "name": "HNL",
+    "description": "Honduras"
+   },
+   {
+    "name": "NIO",
+    "description": "Nicaragua"
+   },
+   {
+    "name": "AED",
+    "description": "United Arab Emirates"
+   },
+   {
+    "name": "HKD",
+    "description": "Hong Kong"
+   },
+   {
+    "name": "CHF",
+    "description": "Switzerland"
+   },
+   {
+    "name": "DZD",
+    "description": "Algeria"
+   },
+   {
+    "name": "SEK",
+    "description": "Sweden"
+   },
+   {
+    "name": "NOK",
+    "description": "Norway"
+   },
+   {
+    "name": "PLN",
+    "description": "Poland"
+   },
+   {
+    "name": "DKK",
+    "description": "Denmark"
+   }
+  ]
+ }
+}

@@ -1,0 +1,484 @@
+{
+ "extraction": [
+  {
+   "name": "po-number",
+   "display_name": "Purchase Order Number",
+   "color": "#0099bf",
+   "hotkey": "p",
+   "type": "id-no",
+   "multi_line": false,
+   "split_items": false,
+   "post_processing": "first_span",
+   "scoring": "exact_match",
+   "hidden": false,
+   "multi_valued": false
+  },
+  {
+   "name": "date",
+   "display_name": "Date",
+   "color": "#110040",
+   "hotkey": "d",
+   "type": "date",
+   "multi_line": false,
+   "split_items": false,
+   "post_processing": "first_span",
+   "scoring": "exact_match",
+   "hidden": false,
+   "multi_valued": false
+  },
+  {
+   "name": "client-name",
+   "display_name": "Client Name",
+   "color": "#bfffc8",
+   "hotkey": "y",
+   "type": "string",
+   "multi_line": false,
+   "split_items": false,
+   "post_processing": "first_span",
+   "scoring": "levenshtein",
+   "hidden": false,
+   "multi_valued": false
+  },
+  {
+   "name": "client-address",
+   "display_name": "Client Address",
+   "color": "#608068",
+   "hotkey": "b",
+   "type": "string",
+   "multi_line": true,
+   "split_items": false,
+   "post_processing": "first_span",
+   "scoring": "levenshtein",
+   "hidden": false,
+   "multi_valued": false
+  },
+  {
+   "name": "vendor-name",
+   "display_name": "Vendor Name",
+   "color": "#40ff8c",
+   "hotkey": "n",
+   "type": "string",
+   "multi_line": false,
+   "split_items": false,
+   "post_processing": "first_span",
+   "scoring": "levenshtein",
+   "hidden": false,
+   "multi_valued": false
+  },
+  {
+   "name": "vendor-address",
+   "display_name": "Vendor Address",
+   "color": "#00bfb3",
+   "hotkey": "v",
+   "type": "string",
+   "multi_line": true,
+   "split_items": false,
+   "post_processing": "first_span",
+   "scoring": "levenshtein",
+   "hidden": false,
+   "multi_valued": false
+  },
+  {
+   "name": "shipping-name",
+   "display_name": "Shipping Name",
+   "color": "#20403e",
+   "hotkey": "h",
+   "type": "string",
+   "multi_line": false,
+   "split_items": false,
+   "post_processing": "first_span",
+   "scoring": "levenshtein",
+   "hidden": false,
+   "multi_valued": false
+  },
+  {
+   "name": "shipping-address",
+   "display_name": "Shipping Address",
+   "color": "#005580",
+   "hotkey": "s",
+   "type": "string",
+   "multi_line": true,
+   "split_items": false,
+   "post_processing": "first_span",
+   "scoring": "levenshtein",
+   "hidden": false,
+   "multi_valued": false
+  },
+  {
+   "name": "billing-name",
+   "display_name": "Billing Name",
+   "color": "#7f5140",
+   "hotkey": "w",
+   "type": "string",
+   "multi_line": true,
+   "split_items": false,
+   "post_processing": "first_span",
+   "scoring": "levenshtein",
+   "hidden": false,
+   "multi_valued": false
+  },
+  {
+   "name": "billing-address",
+   "display_name": "Billing Address",
+   "color": "#ff8c40",
+   "hotkey": "z",
+   "type": "string",
+   "multi_line": true,
+   "split_items": false,
+   "post_processing": "first_span",
+   "scoring": "levenshtein",
+   "hidden": false,
+   "multi_valued": false
+  },
+  {
+   "name": "payment-terms",
+   "display_name": "Payment Terms",
+   "color": "#bfeaff",
+   "hotkey": "1",
+   "type": "string",
+   "multi_line": true,
+   "split_items": false,
+   "post_processing": "first_span",
+   "scoring": "levenshtein",
+   "hidden": false,
+   "multi_valued": false
+  },
+  {
+   "name": "delivery-by-date",
+   "display_name": "Delivery by Date",
+   "color": "#686080",
+   "hotkey": "i",
+   "type": "date",
+   "multi_line": false,
+   "split_items": false,
+   "post_processing": "first_span",
+   "scoring": "exact_match",
+   "hidden": false,
+   "multi_valued": false
+  },
+  {
+   "name": "discount",
+   "display_name": "Discount Amount",
+   "color": "#383040",
+   "hotkey": "g",
+   "type": "number",
+   "multi_line": false,
+   "split_items": false,
+   "post_processing": "first_span",
+   "scoring": "exact_match",
+   "hidden": false,
+   "multi_valued": false
+  },
+  {
+   "name": "net-amount",
+   "display_name": "Net Amount",
+   "color": "#ff0088",
+   "hotkey": "a",
+   "type": "number",
+   "multi_line": false,
+   "split_items": false,
+   "post_processing": "first_span",
+   "scoring": "exact_match",
+   "hidden": false,
+   "multi_valued": false
+  },
+  {
+   "name": "tax-amount",
+   "display_name": "Tax Amount",
+   "color": "#eabfff",
+   "hotkey": "x",
+   "type": "number",
+   "multi_line": false,
+   "split_items": false,
+   "post_processing": "first_span",
+   "scoring": "exact_match",
+   "hidden": false,
+   "multi_valued": false
+  },
+  {
+   "name": "tax-rate",
+   "display_name": "Tax Rate",
+   "color": "#ee00ff",
+   "hotkey": "5",
+   "type": "number",
+   "multi_line": false,
+   "split_items": false,
+   "post_processing": "first_span",
+   "scoring": "exact_match",
+   "hidden": false,
+   "multi_valued": false
+  },
+  {
+   "name": "total-amount",
+   "display_name": "Total Amount",
+   "color": "#bf60b9",
+   "hotkey": "t",
+   "type": "number",
+   "multi_line": false,
+   "split_items": false,
+   "post_processing": "largest_value",
+   "scoring": "exact_match",
+   "hidden": false,
+   "multi_valued": false
+  },
+  {
+   "name": "line-number",
+   "display_name": "Line Number",
+   "color": "#7f7920",
+   "hotkey": "m",
+   "type": "number",
+   "section": "items",
+   "multi_line": false,
+   "split_items": false,
+   "post_processing": "first_span",
+   "scoring": "exact_match",
+   "hidden": false,
+   "multi_valued": false
+  },
+  {
+   "name": "description",
+   "display_name": "Description",
+   "color": "#401036",
+   "hotkey": "e",
+   "type": "string",
+   "section": "items",
+   "multi_line": true,
+   "split_items": false,
+   "post_processing": "first_span",
+   "scoring": "levenshtein",
+   "hidden": false,
+   "multi_valued": false
+  },
+  {
+   "name": "product-code",
+   "display_name": "Product Code",
+   "color": "#0066ff",
+   "hotkey": "9",
+   "type": "id-no",
+   "section": "items",
+   "multi_line": false,
+   "split_items": false,
+   "post_processing": "first_span",
+   "scoring": "exact_match",
+   "hidden": false,
+   "multi_valued": false
+  },
+  {
+   "name": "delivery-date",
+   "display_name": "Delivery Date",
+   "color": "#7f2039",
+   "hotkey": "j",
+   "type": "date",
+   "section": "items",
+   "multi_line": false,
+   "split_items": false,
+   "post_processing": "first_span",
+   "scoring": "exact_match",
+   "hidden": false,
+   "multi_valued": false
+  },
+  {
+   "name": "unit-measure",
+   "display_name": "Unit of Measure",
+   "color": "#ffc480",
+   "hotkey": "r",
+   "type": "string",
+   "section": "items",
+   "multi_line": false,
+   "split_items": false,
+   "post_processing": "first_span",
+   "scoring": "levenshtein",
+   "hidden": false,
+   "multi_valued": false
+  },
+  {
+   "name": "unit-price",
+   "display_name": "Unit Price",
+   "color": "#00bfb3",
+   "hotkey": "u",
+   "type": "number",
+   "section": "items",
+   "multi_line": false,
+   "split_items": false,
+   "post_processing": "first_span",
+   "scoring": "exact_match",
+   "hidden": false,
+   "multi_valued": false
+  },
+  {
+   "name": "quantity",
+   "display_name": "Quantity",
+   "color": "#ff0022",
+   "hotkey": "q",
+   "type": "number",
+   "section": "items",
+   "multi_line": false,
+   "split_items": false,
+   "post_processing": "first_span",
+   "scoring": "exact_match",
+   "hidden": false,
+   "multi_valued": false
+  },
+  {
+   "name": "line-net-amount",
+   "display_name": "Line Net Amount",
+   "color": "#fffbbf",
+   "hotkey": "o",
+   "type": "number",
+   "section": "items",
+   "multi_line": false,
+   "split_items": false,
+   "post_processing": "first_span",
+   "scoring": "exact_match",
+   "hidden": false,
+   "multi_valued": false
+  },
+  {
+   "name": "line-tax-rate",
+   "display_name": "Line Tax Rate",
+   "color": "#f2ff40",
+   "hotkey": "6",
+   "type": "number",
+   "section": "items",
+   "multi_line": false,
+   "split_items": false,
+   "post_processing": "first_span",
+   "scoring": "exact_match",
+   "hidden": false,
+   "multi_valued": false
+  },
+  {
+   "name": "line-tax-amount",
+   "display_name": "Line Tax Amount",
+   "color": "#66bf00",
+   "hotkey": "k",
+   "type": "number",
+   "section": "items",
+   "multi_line": false,
+   "split_items": false,
+   "post_processing": "first_span",
+   "scoring": "exact_match",
+   "hidden": false,
+   "multi_valued": false
+  },
+  {
+   "name": "line-amount",
+   "display_name": "Line Amount",
+   "color": "#234010",
+   "hotkey": "l",
+   "type": "number",
+   "section": "items",
+   "multi_line": false,
+   "split_items": false,
+   "post_processing": "first_span",
+   "scoring": "exact_match",
+   "hidden": false,
+   "multi_valued": false
+  },
+  {
+   "name": "client-vat-no",
+   "display_name": "Client VAT Number",
+   "color": "#4400ff",
+   "hotkey": "c v",
+   "type": "id-no",
+   "multi_line": false,
+   "split_items": false,
+   "post_processing": "first_span",
+   "scoring": "exact_match",
+   "hidden": false,
+   "multi_valued": false
+  }
+ ],
+ "classification": {
+  "currency": [
+   {
+    "name": "USD",
+    "description": "United States"
+   },
+   {
+    "name": "EUR",
+    "description": "Europe"
+   },
+   {
+    "name": "RON",
+    "description": "Romania"
+   },
+   {
+    "name": "GBP",
+    "description": "UK"
+   },
+   {
+    "name": "INR",
+    "description": "India"
+   },
+   {
+    "name": "CAD",
+    "description": "Canada"
+   },
+   {
+    "name": "AUD",
+    "description": "Australia"
+   },
+   {
+    "name": "MYR",
+    "description": "Malaysia"
+   },
+   {
+    "name": "BRL",
+    "description": "Brazil"
+   },
+   {
+    "name": "JPY",
+    "description": "Japan"
+   },
+   {
+    "name": "SGD",
+    "description": "Singapore"
+   },
+   {
+    "name": "HNL",
+    "description": "Honduras"
+   },
+   {
+    "name": "NIO",
+    "description": "Nicaragua"
+   },
+   {
+    "name": "AED",
+    "description": "United Arab Emirates"
+   },
+   {
+    "name": "HKD",
+    "description": "Hong Kong"
+   },
+   {
+    "name": "CHF",
+    "description": "Switzerland"
+   },
+   {
+    "name": "DZD",
+    "description": "Algeria"
+   },
+   {
+    "name": "SEK",
+    "description": "Sweden"
+   },
+   {
+    "name": "ZAR",
+    "description": "South Africa"
+   },
+   {
+    "name": "IDR",
+    "description": "Indonesia"
+   },
+   {
+    "name": "PLN",
+    "description": "Poland"
+   },
+   {
+    "name": "NOK",
+    "description": "Norway"
+   }
+  ]
+ }
+}
