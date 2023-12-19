@@ -1,12 +1,6 @@
 # Advanced-uipath-document-understanding
 
 
-
-
-
-## Acknowledgements<br>
-Tutorial used to build the game: [Youtube Video](https://youtube.com/playlist?list=PLKGu_xEgzk3unP-I_IiotFhHyRg_zXy5X&si=4B3pi21AcaeDthDf)<br><br>
-
 ## Author
 - [Github](https://github.com/Klaus-in-Tech)
 - [LinkedIn](https://www.linkedin.com/in/kakoozaallanklaus/)
